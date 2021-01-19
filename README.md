@@ -1,4 +1,4 @@
-# GEO BOT (EducationalGeoBot)
+# GEOBOT (EducationalGeoBot)
 
 GeoBot was developed in order to assist in the dissemination of geographic knowledge. Using simple commands the bot is able to provide some information about all countries in the world. In addition, GeoBot is capable of doing a small quiz with the user!
 
