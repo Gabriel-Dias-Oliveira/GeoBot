@@ -15,7 +15,7 @@ func main() {
 func runBot() {
 	geoBot, err := tgbotapi.NewBotAPI(botToken)
 
-	log.Printf("Gettin Countries API...\n")
+	log.Printf("Getting Countries API...\n")
 
 	countries := getCountriesAPI()
 
