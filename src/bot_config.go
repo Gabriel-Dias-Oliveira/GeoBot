@@ -69,8 +69,8 @@ func getRandomNumber(max int) int {
 }
 
 // Choose a random country from the list.
-func getRandomCountry(coutries []Country) Country {
-	return coutries[getRandomNumber(len(coutries))]
+func getRandomCountry(countries []Country) Country {
+	return countries[getRandomNumber(len(countries))]
 }
 
 // Checks if the name entered is a translation of the English name of a country.
@@ -148,7 +148,7 @@ func notInList(randomCountry Country, gameList []Country) bool {
 
 // Remove an index from array.
 func removeIndex(array []Country, index int) []Country {
-	return append(array[:index], array[index+1:]...)
+	return append(array[:index], array[index+1:]...) // [0, index) + [index+1, endOfArra]
 }
 
 // Reset game variables.
@@ -261,12 +261,12 @@ func defaultAnswer() string {
 }
 
 // List all countries available via the bot.
-func listCountries(coutries []Country) string {
-	var coutriesListNames string = "Here is the list of countries I know:\n"
+func listCountries(countries []Country) string {
+	var countriesListNames string = "Here is the list of countries I know:\n"
 
-	for i := 0; i < len(coutries); i++ {
-		coutriesListNames += coutries[i].CountryName + "\n"
+	for i := 0; i < len(countries); i++ {
+		countriesListNames += countries[i].CountryName + "\n"
 	}
 
-	return coutriesListNames
+	return countriesListNames
 }
