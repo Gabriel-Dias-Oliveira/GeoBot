@@ -161,7 +161,7 @@ func restartGame() {
 func countryGame(countries []Country) string {
 	var gameList []Country
 	var country Country
-	var menssage string
+	var message string
 	var flagControl bool
 
 	restartGame()
@@ -192,30 +192,30 @@ func countryGame(countries []Country) string {
 		}
 	}
 
-	menssage += "Okay, here we go!\n"
+	message += "Okay, here we go!\n"
 
 	if gameMode == 0 {
-		menssage += fmt.Sprintf("What is the capital of %v:\n", country.CountryName)
+		message += fmt.Sprintf("What is the capital of %v:\n", country.CountryName)
 
 		for i := 0; i < len(finalList); i++ {
-			menssage += fmt.Sprintf("%v) %v\n", i+1, finalList[i].Capital)
+			message += fmt.Sprintf("%v) %v\n", i+1, finalList[i].Capital)
 		}
 	} else {
-		menssage += fmt.Sprintf("%v is the capital of which country:\n", country.Capital)
+		message += fmt.Sprintf("%v is the capital of which country:\n", country.Capital)
 
 		for i := 0; i < len(finalList); i++ {
-			menssage += fmt.Sprintf("%v) %v\n", i+1, finalList[i].CountryName)
+			message += fmt.Sprintf("%v) %v\n", i+1, finalList[i].CountryName)
 		}
 	}
 
-	menssage += "Type: /answer number!\n"
+	message += "Type: /answer number!\n"
 
-	return menssage
+	return message
 }
 
 // Compares user response to expected response.
 func checkAnswer(userAnswer string) string {
-	var menssage string
+	var message string
 	userGuess, err := strconv.Atoi(userAnswer)
 
 	if err != nil || gameIndex == -1 || userGuess < 1 || userGuess > 4 {
@@ -223,9 +223,9 @@ func checkAnswer(userAnswer string) string {
 	}
 
 	if userGuess == gameIndex {
-		menssage += "Right!\nIt looks like we have an expert from the countries around here!\nWhy don't you try again?"
+		message += "Right!\nIt looks like we have an expert from the countries around here!\nWhy don't you try again?"
 	} else {
-		menssage += fmt.Sprintf("Unfortunately you were wrong :c\nThe right answer was (%v - %v) and not (%v - %v)",
+		message += fmt.Sprintf("Unfortunately you were wrong :c\nThe right answer was (%v - %v) and not (%v - %v)",
 			finalList[gameIndex-1].CountryName, finalList[gameIndex-1].Capital,
 			finalList[userGuess-1].CountryName, finalList[userGuess-1].Capital)
 	}
@@ -236,7 +236,7 @@ func checkAnswer(userAnswer string) string {
 
 	restartGame()
 
-	return menssage
+	return message
 }
 
 // Initial command.
